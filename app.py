@@ -1,12 +1,17 @@
-from flask import Flask
+from flask import Flask,render_template
+from flask_bootstrap import Bootstrap
 
-app = Flask(__name__)
+def create_app():
+    app = Flask(__name__)
+    Bootstrap(app)
 
-@app.route('/')
-def index():
-    return '<h1>ECM Bonjour</h1>'
+    @app.route('/')
+    def index():
+        return '<h1>ECM Bonjour</h1>'
 
 
-@app.route('/user/<name>')
-def user(name):
-    return f'<h1>Hello, {name}</h1>'
+    @app.route('/user/<name>')
+    def user(name):
+        return render_template('user.html', name=name)
+
+    return app
