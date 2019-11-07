@@ -1,0 +1,9 @@
+/venv
+.coverage
+.idea
+.pytest_cache
+
+tests/.pytest_cache
+tests/.coverage
+data.sqlite
+
